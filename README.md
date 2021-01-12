@@ -6,11 +6,11 @@ This is a Phasmophobia overlay for streamers that shows clues found, possible gh
 
 ### Initial Setup
 
-To use script simply scroll down to the line where you see `ComfyJS.Init( "{{ user }}" );` and change that field to your username. For example I would change `ComfyJS.Init( "{{ user }}" );` to `ComfyJS.Init( "Rune911" );`
+To use script simply scroll down to the line where you see `username = "placeholder";` and change that field to your username. For example I would change `username = "placeholder";` to `username = "Rune911";`
 
 ### Use in OBS.
 
-Add this script as a web source in obs. From there it will look for chat commands from the broadcaster, mods, or vip
+Add this script as a web source in obs. When the source is active, it will look for chat commands from the broadcaster, mods, or vip
 
 ### Interact with your Viewers!
 
