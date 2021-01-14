@@ -1,7 +1,7 @@
 body {
     font-family: 'East Sea Dokdo', cursive;
     font-size: -webkit-xxx-large;
-    text-shadow: 0 0 11px white;
+    text-shadow: 0 0 24px white;
 }
 
 button {
@@ -15,7 +15,8 @@ button {
     background: none;
     border: none;
     margin: 1px;
-    text-shadow: 0 0 11px white;
+    background: grey;
+    text-shadow: 0 0 24px white;
 }
 
 p {

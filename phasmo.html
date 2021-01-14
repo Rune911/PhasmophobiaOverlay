@@ -21,10 +21,11 @@
 
         // config
         alwaysshow = true
-        username = "placeholder";
+        username = "solrac214";
         // end config
 
         clues = ["orbs", "freezing", "fingerprints", "box", "writing", "emf"];
+        anticlues = ["noorbs", "nofreezing", "nofingerprints", "nobox", "nowriting", "noemf"]
 
         ghosts = {
             Banshee: ["freezing", "fingerprints", "emf"],
@@ -55,8 +56,7 @@
             if ((flags.mod || flags.broadcaster || flags.vip) && clues.includes(command)) {
                 console.log(command + " was typed in chat");
                 clicked(command);
-            }
-            if ((flags.mod || flags.broadcaster || flags.vip) && command === "phasmo-reset") {
+            } else if ((flags.mod || flags.broadcaster || flags.vip) && command === "phasmo-reset") {
                 console.log(command + " was typed in chat");
                 foundclues = [];
                 foundclueshtml = "";
@@ -69,7 +69,7 @@
         }
 
         function clicked(clue) {
-            foundclueshtml += "<button type=\"button\">" + clue + "<\/button>";
+            foundclueshtml += "<button type=\"button\" class=\"found\">" + clue + "<\/button>";
             foundclues.push(clue);
             possibleghosts();
         }
