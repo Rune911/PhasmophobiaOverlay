@@ -4,7 +4,9 @@
 <head>
     <title>Phasmo OBS Overlay</title>
     <script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
-    <meta charset=utf-8> </head>
+    <link rel="stylesheet" href="phasmo.css" <meta charset=utf-8> </head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
 
 <body>
     <p id="iframegoeshere"></p>
@@ -19,10 +21,11 @@
 
         // config
         alwaysshow = true
-        username = "placeholder";
+        username = "solrac214";
         // end config
 
         clues = ["orbs", "freezing", "fingerprints", "box", "writing", "emf"];
+        anticlues = ["noorbs", "nofreezing", "nofingerprints", "nobox", "nowriting", "noemf"]
 
         ghosts = {
             Banshee: ["freezing", "fingerprints", "emf"],
@@ -53,8 +56,7 @@
             if ((flags.mod || flags.broadcaster || flags.vip) && clues.includes(command)) {
                 console.log(command + " was typed in chat");
                 clicked(command);
-            }
-            if ((flags.mod || flags.broadcaster || flags.vip) && command === "phasmo-reset") {
+            } else if ((flags.mod || flags.broadcaster || flags.vip) && command === "phasmo-reset") {
                 console.log(command + " was typed in chat");
                 foundclues = [];
                 foundclueshtml = "";
@@ -67,7 +69,7 @@
         }
 
         function clicked(clue) {
-            foundclueshtml += "<button type=\"button\">" + clue + "<\/button>";
+            foundclueshtml += "<button type=\"button\" class=\"found\">" + clue + "<\/button>";
             foundclues.push(clue);
             possibleghosts();
         }
@@ -98,7 +100,7 @@
                     };
                 };
             };
-            document.getElementById("iframegoeshere").innerHTML = "<p style=\"color:white\">" + remainingghostshtml + "<br>Found:" + foundclueshtml + "<br>Looking For: " + possibleclueshtml + "<\/p>";
+            document.getElementById("iframegoeshere").innerHTML = "<p style=\"color:white\"><span class=\"rowheader\">Possibilities: </span>" + remainingghostshtml + "<br><span class=\"rowheader\">Found:</span>" + foundclueshtml + "<br><span class=\"rowheader\"> Looking For: </span>" + possibleclueshtml + "<\/p>";
         };
 
         ComfyJS.Init(username);
