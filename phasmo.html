@@ -54,9 +54,14 @@
 
         ComfyJS.onCommand = (user, command, message, flags, extra) => {
             if ((flags.mod || flags.broadcaster || flags.vip) && clues.includes(command)) {
+            //uncomment the below line and comment the above line if you would like any user in chat to be able to input hints and clear
+            //if (clues.includes(command)) {
                 console.log(command + " was typed in chat");
                 clicked(command);
-            } else if ((flags.mod || flags.broadcaster || flags.vip) && command === "phasmo-reset") {
+            }
+            else if ((flags.mod || flags.broadcaster || flags.vip) && command === "phasmo-reset") {
+            //uncomment the below line and comment the above line if you would like any user in chat to be able to input hints and clear
+            //else if (command === "phasmo-reset") {
                 console.log(command + " was typed in chat");
                 foundclues = [];
                 foundclueshtml = "";
@@ -69,9 +74,11 @@
         }
 
         function clicked(clue) {
-            foundclueshtml += "<button type=\"button\" class=\"found\">" + clue + "<\/button>";
-            foundclues.push(clue);
-            possibleghosts();
+            if (!(foundclues.includes(clue))) {
+                foundclueshtml += "<button type=\"button\" class=\"found\">" + clue + "<\/button>";
+                foundclues.push(clue);
+                possibleghosts();
+            }
         }
 
         function possibleghosts() {
